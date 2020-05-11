@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Solução da prova: https://youtu.be/RUA5FVRt2f4
+
+
 # Este NÃO é um programa ROS
 
 from __future__ import print_function, division 
