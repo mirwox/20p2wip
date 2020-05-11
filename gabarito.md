@@ -1,30 +1,9 @@
 # Robótica Computacional
 
-## Prova AI
+## Prova AI - GABARITO
 
 **Você deve escolher somente 3 questões para fazer. Todo mundo que fizer pelo menos uma questão ganha 0.1**
 
-
-Nome:_______________
-
-
-Questões que fez:____________
-
-
-
-Observações de avaliações nesta disciplina:
-* É necessário ter pelo menos $50\%$ de nota nesta prova
-* Quem não tiver nota mínima nesta prova pode fazer a P2 versando sobre o mesmo conteúdo na semana das avaliações finais. Valerá a maior nota dentre as provas P1 e P2
-* Tenha os repositórios https://github.com/Insper/robot20/ e https://github.com/arnaldojr/my_simulation atualizados em seu catkin_ws/src .
-* Você pode consultar a internet ou qualquer material, mas não pode se comunicar com pessoas ou colegas a respeito da prova
-* Ponha o nome no enunciado da prova no Github
-* Faça commits e pushes frequentes no seu repositório (tem dicas [no final deste arquivo](./instrucoes_setup.md))
-* Preferencialmente use uma foto sua no perfil
-* Esteja conectado e pronto para receber calls do professor e da equipe via Teams
-* Se precisar se ausentar temporariamente, avise no chat da prova
-* Pode-se consultar qualquer material online ou próprio. Não se pode compartilhar informações com colegas em tempo real
-* Faça commits frequentes. O primeiro a enviar alguma ideia será considerado autor original
-* A responsabilidade por ter o *setup* funcionando é de cada estudante
 
 
 Existe algumas dicas de referência rápida de setup [instrucoes_setup.md](instrucoes_setup.md)
@@ -36,6 +15,10 @@ Existe algumas dicas de referência rápida de setup [instrucoes_setup.md](instr
 
 
 ## Questão 1  (3.3 pontos)
+
+[Discussão da solução aqui](./q1/Solucao_Q1.ipynb)
+
+[Código da solução aqui](./q1/q1.py)
 
 #### O que você deve fazer:
 
@@ -60,7 +43,7 @@ Modifique o código para **escrever na imagem** sempre que o seu cão designado 
 Um cão está em cima da cadeira quando ele está  acima da cadeira na imagem e seu centro está contido dentro dos limites horizontais da cadeira, como na figura abaixo.
 
 
-![](./em_cima.png)
+![](./q1/em_cima_definicao.png)
 
 **Qual é meu cão designado?**
 
@@ -76,10 +59,11 @@ Escreva na prova seu número de RA (registro de aluno). Se seu número de RA for
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
-
-
-
 ## Questão 2 (3.3 pontos)
+
+[Discussão da solução aqui](./q2/Q2_Solucao.ipynb)
+
+[Código da solução aqui](./q2/q2/py)
 
 #### O que é para fazer
 
@@ -93,7 +77,7 @@ O código base para este exercício está em `q2/q2.py`. Este exercício **não 
 
 Você deve escolher as interseções de acordo com a tabela abaixo.
 
-<img src=./q2/q2_ai.png width=75%></img>
+**Tabela suprimida, se quiser uma cópia fale com o professor**
 
 
 
@@ -107,9 +91,14 @@ Você deve escolher as interseções de acordo com a tabela abaixo.
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
-
-
 ## Questão 3  (3.3 pontos)
+
+
+[Discussão da solução aqui](./q3/Q3_Solucao.ipynb)
+
+[Código da solução aqui](./p1_20/scripts/Q3_exemplo_odom.py)
+
+
 
 #### O que é para fazer
 
@@ -168,9 +157,11 @@ O código exemplo traz praticamente tudo que você precisa saber sobre o tópico
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
-
-
 ## Questão 4 (3.3 pontos)
+
+[Solução aqui](./p1_20/scripts/Q4_scan_grafico.py)
+
+[Discussão da solução aqui](./q4/Q4_solucao.ipynb)
 
 #### O que é para fazer
 
@@ -206,3 +197,7 @@ Quando este programa roda, ele monta uma imagem da OpenCV baseada nas leituras d
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
+
+```python
+
+```
