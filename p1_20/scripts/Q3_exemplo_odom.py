@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
 
-# Solucao - demo em https://youtu.be/j1cJb77kIFE
+# Solucao - demo em https://youtu.be/n4Ivbk-uFho
 
 # Sugerimos rodar com:
 # roslaunch turtlebot3_gazebo  turtlebot3_empty_world.launch 
