@@ -3,6 +3,9 @@
 
 # Este NÃO é um programa ROS
 
+# Este é o gabarito. Pode ser visto em execução em https://youtu.be/BRtvmxYzEB0
+
+
 from __future__ import print_function, division 
 
 import cv2
@@ -110,6 +113,98 @@ def detect(frame):
     # show the output image
     return image, results
 
+########### Funções da solução ###############
+
+from numpy import array, uint8
+yellow = [array([19,  50,  50], dtype=uint8),array([29, 255, 255], dtype=uint8) ]
+magenta = [array([128,  50,  50], dtype=uint8),array([138, 255, 255], dtype=uint8)] 
+
+def count_pixels(mask, ponto1, ponto2, txt_color):
+    """ Recebe uma mascara binaria e 2 pontos e conta quantos pixels são brancos na mascara"""
+    x1, y1 = ponto1
+    x2, y2 = ponto2
+
+    font = cv2.FONT_HERSHEY_SIMPLEX 
+    # Selecionando só a região da imagem com o cachorro
+    submask = mask[y1:y2,x1:x2]
+    # Somando os pixels 255 e dividindo por 255 para saber quantos são
+    pixels = np.sum(submask)/255
+    # O resto é só plot
+    rgb_mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB)
+    cv2.rectangle(rgb_mask, ponto1, ponto2, (255,0,0), 3)
+    cv2.putText(rgb_mask, "%s:%d"%(txt_color, pixels), (int((x1+x2)/2), int((y1+y2)/2)), font, 1, (0,255,0),1,cv2.LINE_AA)
+    return pixels, rgb_mask
+    
+def plota_contagem(rgb, texto):
+    cv2.imshow(texto, rgb)
+    cv2.waitKey(1)
+    
+def classifica_cadeira(dog, chair, frame):
+    """ Analisa se o dog está em cima da cadeira
+        de acordo com a regra da prova. 
+        Se estiver, imprime mensagem na tela *e* deixa o dog com retângulo vermelho
+        Recebe: tuplas já encontradas com o dog e a chair
+    """
+    dog_p1 = dog[2]
+    dog_p2 = dog[3]
+    center_x = (dog_p1[0] + dog_p2[0])/2
+    cadeira_p1 = chair[2]
+    cadeira_p2 = chair[3]
+    
+    font = cv2.FONT_HERSHEY_SIMPLEX 
+
+    if cadeira_p1[0] < center_x < cadeira_p2[0]: # x: Se o centro do cão estiver dentro da área da cadeira
+        if min(dog_p1[1], dog_p2[1]) < max(cadeira_p1[1], cadeira_p2[1]): # y: se o cao estiver acima da cadeira:
+            # Lembrem-se que na OpenCV o canto superior esq. é (0,0) e as coordenadas crescem para direita 
+            # e para baixo
+            cv2.putText(frame, "Cao sobre a cadeira", (50, 50), font, 1, (0, 0, 255),1,cv2.LINE_AA)
+            cv2.rectangle(frame, dog_p1, dog_p2, (0,0,255), 3)
+    return frame
+
+
+def q1_solution(resultados, frame):
+    # Variaveis de descricao da cena
+    chair = None
+    dogs = []
+    dog_categories = ["dog", "person"]
+    dog_magenta = None
+    dog_yellow = None
+    
+    # Percorre os resultados da rede neural
+    for r in resultados:
+        if r[0] == "chair":
+            chair = r
+        if r[0] in dog_categories:
+            dogs.append(r)
+    print("dogs", dogs)
+    ### Vamos classificar os cães em amarelo ou rosa, se houver
+    if len(dogs)>=1:
+        frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+        # Máscara para filtra amarelo
+        mask_yellow = cv2.inRange(frame_hsv, yellow[0], yellow[1])
+        # Máscara para filtrar magenta
+        mask_magenta = cv2.inRange(frame_hsv, magenta[0], magenta[1])
+        for d in dogs:
+            qtd_amarelo, rgb_amarelo = count_pixels(mask_yellow.copy(), d[2], d[3], "Am.")
+            plota_contagem(rgb_amarelo, "Amarelo")
+            qtd_magenta, rgb_magenta = count_pixels(mask_magenta.copy(), d[2], d[3], "Mag.")
+            plota_contagem(rgb_magenta, "Magenta")
+            if qtd_amarelo > 50: # 50 foi escolhido para rejeitar eventuais ruidos
+                dog_yellow = d
+            elif qtd_magenta > 50:
+                dog_magenta = d
+    if chair is not None:
+        if dog_magenta is not None:
+            classifica_cadeira(dog_magenta, chair, frame)        
+        if dog_yellow is not None:
+            classifica_cadeira(dog_yellow, chair, frame)
+
+
+    
+########## Fim das funções da solução ##########
+
+
+
 if __name__ == "__main__":
 
 
@@ -150,9 +245,12 @@ if __name__ == "__main__":
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         saida, resultados = detect(frame)
+        
+        ### Aplicação da solução
+        q1_solution(resultados, frame)
 
         # NOTE que em testes a OpenCV 4.0 requereu frames em BGR para o cv2.imshow
-        cv2.imshow('imagem', saida)
+        cv2.imshow('imagem', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
