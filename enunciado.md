@@ -13,20 +13,21 @@ Questões que fez:____________
 
 
 Observações de avaliações nesta disciplina:
-* É necessário ter pelo menos $50\%$ de nota em uma das provas
-* Se você já tem uma nota, pode ver esta prova e sair para fazer a Sub em 18/06.
+* É necessário ter pelo menos $5.0$ de nota em uma das provas
+* Se você já tem uma nota, se quiser pode ver esta prova e sair sem dar commit para fazer a Sub em 18/06.
 * Se você já fez a P1 e fizer esta prova, pode fazer a SUB com efeito delta (fica com no máximo 5.0)
 * Tenha os repositórios https://github.com/Insper/robot20/ e https://github.com/arnaldojr/my_simulation atualizados em seu catkin_ws/src .
 * Você pode consultar a internet ou qualquer material, mas não pode se comunicar com pessoas ou colegas a respeito da prova
 * Ponha o nome no enunciado da prova no Github
-* Faça commits e pushes frequentes no seu repositório (tem dicas [no final deste arquivo](./instrucoes_setup.md))
-* Preferencialmente use uma foto real sua no perfil do Teams. Se você *não tiver* vamos ligar para você e será obrigatório abrir a câmera
-* Esteja conectado e pronto para receber calls do professor e da equipe via Teams e para abrir câmera e compartilhar tela
+* Faça commits e pushes frequentes no seu repositório (tem dicas [no final deste arquivo](./inst
+rucoes_setup.md))
+* Use uma foto real sua no perfil do Teams. Se você *não tiver* vamos ligar para você e será obrigatório abrir a câmera
+* Esteja conectado no Teams e pronto para receber calls do professor e da equipe. 
 * Se precisar se ausentar temporariamente, avise no chat da prova
-* Pode-se consultar qualquer material online ou próprio. Não se pode compartilhar informações com colegas em tempo real
+* Permite-se consultar qualquer material online ou próprio. Não se pode compartilhar informações com colegas durante a prova
 * Faça commits frequentes. O primeiro a enviar alguma ideia será considerado autor original
 * A responsabilidade por ter o *setup* funcionando é de cada estudante
-* A prova de hoje permite consulta a qualquer material, mas não permite comunicação entre alunos da disciplina fora do chat da reunião do Teams acompanhado por todos. E apenas podem ser perguntadas questões de esclarecimento geral 
+* Questões de esclarecimento geral podem ser perguntadas no chat do Teams
 * Se você estiver em casa pode falar com seus familiares, mas não pode receber ajuda na prova.
 * É vedado colaborar ou pedir ajuda a colegas ou qualquer pessoa que conheça os assuntos avaliados nesta prova.
 
@@ -37,6 +38,9 @@ Existe algumas dicas de referência rápida de setup [instrucoes_setup.md](instr
 
 Se você tiver alguma evidência de fraude cometida nesta prova, [use este serviço de e-mail anônimo](https://www.guerrillamail.com/pt/compose)  para informar ao professor.  Ou [este formulário](https://forms.gle/JPhqjPmuKAHxmvwZ9)
 
+# Setup 
+
+Execute o script `downloads.sh`  para baixar os vídeos necessários.
 
 
 # Questões
@@ -44,42 +48,47 @@ Se você tiver alguma evidência de fraude cometida nesta prova, [use este servi
 
 ## Questão 1  (3.3 pontos)
 
+O padrão a seguir foi impresso numa folha. Alguém segurou este padrão em frente ao computador com a folha paralela à tela a uma distância de 1 m e obteve a imagem que está no arquivo `q1\imagem_1metro.png`, que também pode ser vista abaixo
+
+![](./q1/imagem_1metro.png)
+
+
+As distâncias presentes no padrão são as seguintes:
+
+![](./q1/distancias_padrao.png)
+
+Lembre-se ainda do modelo *pinhole* de câmera: 
+
+![](./q1/pinhole.png)
+
+
+
 #### O que você deve fazer:
 
-Modifique o código para **escrever na imagem** sempre que o seu cão designado estiver em cima da cadeira. Você precisa colocar um aviso em texto de que o cão está em cima da cadeira, e também precisa desenhar um retângulo adicional na cor vermelha ao redor do cão de interesse.
+Dadas as informações fornecidas um programa que imprime a distância D entre a folha e a câmera a cada frame.
 
-Um cão está em cima da cadeira quando ele está  acima da cadeira na imagem e seu centro está contido dentro dos limites horizontais da cadeira, como na figura abaixo.
+Deixe clara qual medida você está fazendo no padrão e qual a fórmula encontrada para D.
+
+Se você realizou alguma medida manual, anote. 
+
 
 #### Orientações
 
 Execute o programa `q1/q1.py`. Este exercício **não precisa** de ROS
 
-Você vai notar que este programa roda o vídeo `dogs_chairs.mp4`. Caso seu download não tenha dado certo, baixe o vídeo da pasta `robot20/media` no Github.
+Você vai notar que este programa roda o vídeo ``q1_padrao.mp4`. 
 
-![](./q1/exemplo_imagem_q1.png)
-
-Este programa também usa a rede `MobileNet` para classificar os objetos da imagem. 
 
 #### O que você deve fazer:
-
-Modifique o código para **escrever na imagem** sempre que o seu cão designado estiver em cima da cadeira. Você precisa colocar um aviso em texto de que o cão está em cima da cadeira, e também precisa desenhar um retângulo adicional na cor vermelha ao redor do cão de interesse.
-
-Um cão está em cima da cadeira quando ele está  acima da cadeira na imagem e seu centro está contido dentro dos limites horizontais da cadeira, como na figura abaixo.
-
-
-![](./em_cima.png)
-
-**Qual é meu cão designado?**
-
-Escreva na prova seu número de RA (registro de aluno). Se seu número de RA for *par*, seu cão será o amarelo. Se seu número de RA for *ímpar*, seu cão designado será o roxo.
 
 
 |Resultado| Conceito| 
 |---|---|
-| Não executa | 0 |
-| Consegue identificar se algum cão está em cima da cadeira  | 1.5 |
-| Realiza algum trabalho para diferenciar entre os cães, mas resultado não é perfeito | 2.3 |
-| Aponta sempre corretamente o cão | 3.3 | 
+| Não executa e nem explica nada | 0 |
+| Explique quais valores do modelo pinhole são necessários e os calcula| 0.75|
+| Segmenta cores para alcançar objetivos  | 1.5 |
+| Vai um nível além das cores, por exemplos com contornos, formas e distâncias | 2.3 |
+| Imprime sempre corretamente a distância D | 3.3 | 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
@@ -88,28 +97,36 @@ Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
 ## Questão 2 (3.3 pontos)
 
-#### O que é para fazer
+#### Contexto
 
-Um código que plota **na tela** sobre a imagem o ponto de interseção entre as retas. 
+Você foi contratado por uma empresa de *media tracking* para monitorar quando o logotipo de uma empresa é colocado sobre a programação de uma TV.
+
+
+<img src=./q2/pomba_red.png width=50%></img>
+
+O vídeo `logomarca.mp4` contém o vídeo de um campeonato de Mountain Bike.
+
 
 #### Orientações
 
 O código base para este exercício está em `q2/q2.py`. Este exercício **não precisa** de ROS
 
-![](./q2/figura_q2.png)
-
-Você deve escolher as interseções de acordo com a tabela abaixo.
-
-<img src=./q2/q2_ai.png width=75%></img>
+Dica: Talvez você se interesse pelo notebook de *Feature tracking*.
 
 
+**O que você deve fazer**:
 
+Apontar corretamente quando o logo desejado aparece na cor correta, contendo o fundo vermelho. Você não deve apontar quando este logo aparecer em preto e branco.
+
+Você deve desenhar um retângulo ao redor do padrão.
+
+O apontamento não precisa ser feito na tela, pode ser feito no terminal.
 
 |Resultado| Conceito| 
 |---|---|
 | Não executa | 0 |
-| Segmenta as retas mas não calcula interseção | 1.5 |
-| Calcula interseção com falhas | 2.3 |
+| Identifica algum pombo corretamente usando features  | 1.8 |
+| Faz algum processamento de cor, mas ainda não é perfeito  | 2.3 |
 | Funciona perfeitamente | 3.3 | 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
@@ -120,15 +137,22 @@ Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
 #### O que é para fazer
 
-Um programa que aguarda por $30s$ (30 segundos) e depois conduz o robô de volta para a origem.  
+Crie uma função `go_to(x,y)` que deve ser invocada no `main`  e faz o robô ir de forma bem-sucedida até a posição `(x,y)`. 
 
-Mais ou menos assim: 
-* Seu programa abre
-* Alguém abre o teleop e leva o robô para longe
-* Quando o timer der $30 s$ você orienta o robô em direção ao ponto $(0,0)$ e o faz chegar lá guiado pela odometria 
+Esta função precisa usar a odometria para monitorar se o `x,y` alcançado está certo.
+
+Depois que o robô chegar na posição certa com uma tolerância de `30cm` precisa parar.
+
+Caso o robô chegue a uma distância maior que a tolerância, precisa continuar rodando a função `(x,y)` até a meta ser alcançada.
+
+Após fazer a função acima, faça o robô desenhar no chão o triângulo equilátero especificado abaixo.
+
+Escola um valor razoável para a variável `lado`. 
+
+<img src="./img/q3_triangulo.png" width=50%></img>
 
 
-O código para este exercício está em `p1_20/scripts/Q3_exemplo_odom.py`.
+O código para este exercício está em `p2_20/scripts/Q3_controle.py`.
 
 Para executar, recomendamos que faça: 
 
@@ -136,30 +160,11 @@ Para executar, recomendamos que faça:
 
 Depois:
 
-    rosrun p1_20 Q3_exemplo_odom.py
+    rosrun p1_20 Q3_controle.py
 
 
-#### Exemplos das etapas
+**Cuidado com teleops esquecidos** 
 
-Note que os eixos R-G-B no Gazebo corresponde aos x-y-z
-
-Robô chega até algum lugar guiado pelo `teleop` (isso é antes do seu código rodar)
-
-<img src="./q3/q3_andou.png" width=50%></img>
-
-Robô se rotaciona para ir em direção à origem:
-
-<img src="./q3/q3_orientou_se.png" width=50%></img>
-
-Robô se traslada em direção à origem:
-
-<img src="./q3/q3_translacao.png" width=50%></img>
-
-Quando chegar na origem, monitorando pela odometria, o robô para.
-
-<img src="./q3/q3_finalizado.png" width=50%></img>
-
-#### O que você deve saber
 
 O código exemplo traz praticamente tudo que você precisa saber sobre o tópico `/odom`. Analise-o com cuidado.
 
@@ -167,10 +172,9 @@ O código exemplo traz praticamente tudo que você precisa saber sobre o tópico
 |Resultado| Conceito| 
 |---|---|
 | Não executa | 0 |
-| Conta até 30 segundos | 0.5 |
-| Consegue extrair o x,y e o ângulo e os usa para tentar mover o robô | 1.0 |
-| Consegue extrair o x,y e o ângulo e os usa para tentar mover o robô com sucesso parcial | 2.3 |
-| Funciona perfeitamente | 3.3 | 
+| Chega na posição x,y sem usar odometria| 1.0|
+| Usa odometria para chjegar na posição x,y | 2.5 |
+| Usa a função desenvolvida para fazer o triângulo | 3.3 |
 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
@@ -181,23 +185,20 @@ Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
 #### O que é para fazer
 
-Um programa que, a partir da leitura do laser, identifica qual é o **maior objeto contínuo** nas proximidades e faz o robô ficar voltado para ele (a posição $0$ do ranges fica voltada para o centro do objeto)
+Um código que faz o robô chegar e 1.0 m perto da sua esfera designada e parar. Você deve usar para tal uma combinação de *laser* e câmera. 
 
 #### Detalhes de como rodar
 
 
-O código para este exercício está em: `p1_20/scripts/Q4_scan_grafico.py`
+O código para este exercício está em: `p2_20/scripts/Q4_formas.py`
 
 Para rodar, recomendamos que faça:
 
-    roslaunch turtlebot3_gazebo  turtlebot3_stage_4.launch
+    roslaunch my_simulation formas.launch
 
 Depois:
 
-    rosrun p1_20 Q4_scan_grafico.py
-
-Quando este programa roda, ele monta uma imagem da OpenCV baseada nas leituras do laser. A ideia é que você use esta imagem para deduzir qual o maior objeto contínuo
-
+    rosrun p1_20 Q4_formas.py
 
 <img src="./q4/Q4.png" width=50%></img>
 
@@ -205,10 +206,9 @@ Quando este programa roda, ele monta uma imagem da OpenCV baseada nas leituras d
 |Resultado| Conceito| 
 |---|---|
 | Não executa | 0 |
-| Consegue segmentar os pixels em objetos | 0.75 |
-| Consegue identicar qual o maior objeto | 1.5 |
-| Tem resultados parciais ao fazer o robô girar para o maior objeto| 2.3 |
-| Funciona perfeitamente | 3.3 | 
+| Consegue segmentar os pixels em objetos sem identificar sua esfera | 1.0 |
+| Identifica qual a esfera correta | 3.0 |
+| Faz a abordagem baseada em câmera e laser para se aproximar corretamente | 3.3 | 
 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
