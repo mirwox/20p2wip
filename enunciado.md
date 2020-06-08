@@ -1,6 +1,6 @@
 # Robótica Computacional
 
-## Prova AI
+## Prova AF
 
 **Você deve escolher somente 3 questões para fazer. Todo mundo que fizer pelo menos uma questão ganha 0.1**
 
@@ -13,22 +13,29 @@ Questões que fez:____________
 
 
 Observações de avaliações nesta disciplina:
-* É necessário ter pelo menos $50\%$ de nota nesta prova
-* Quem não tiver nota mínima nesta prova pode fazer a P2 versando sobre o mesmo conteúdo na semana das avaliações finais. Valerá a maior nota dentre as provas P1 e P2
+* É necessário ter pelo menos $50\%$ de nota em uma das provas
+* Se você já tem uma nota, pode ver esta prova e sair para fazer a Sub em 18/06.
+* Se você já fez a P1 e fizer esta prova, pode fazer a SUB com efeito delta (fica com no máximo 5.0)
 * Tenha os repositórios https://github.com/Insper/robot20/ e https://github.com/arnaldojr/my_simulation atualizados em seu catkin_ws/src .
 * Você pode consultar a internet ou qualquer material, mas não pode se comunicar com pessoas ou colegas a respeito da prova
 * Ponha o nome no enunciado da prova no Github
 * Faça commits e pushes frequentes no seu repositório (tem dicas [no final deste arquivo](./instrucoes_setup.md))
-* Preferencialmente use uma foto sua no perfil
-* Esteja conectado e pronto para receber calls do professor e da equipe via Teams
+* Preferencialmente use uma foto real sua no perfil do Teams. Se você *não tiver* vamos ligar para você e será obrigatório abrir a câmera
+* Esteja conectado e pronto para receber calls do professor e da equipe via Teams e para abrir câmera e compartilhar tela
 * Se precisar se ausentar temporariamente, avise no chat da prova
 * Pode-se consultar qualquer material online ou próprio. Não se pode compartilhar informações com colegas em tempo real
 * Faça commits frequentes. O primeiro a enviar alguma ideia será considerado autor original
 * A responsabilidade por ter o *setup* funcionando é de cada estudante
+* A prova de hoje permite consulta a qualquer material, mas não permite comunicação entre alunos da disciplina fora do chat da reunião do Teams acompanhado por todos. E apenas podem ser perguntadas questões de esclarecimento geral 
+* Se você estiver em casa pode falar com seus familiares, mas não pode receber ajuda na prova.
+* É vedado colaborar ou pedir ajuda a colegas ou qualquer pessoa que conheça os assuntos avaliados nesta prova.
 
 
 Existe algumas dicas de referência rápida de setup [instrucoes_setup.md](instrucoes_setup.md)
 
+**Integridade Intelectual**
+
+Se você tiver alguma evidência de fraude cometida nesta prova, [use este serviço de e-mail anônimo](https://www.guerrillamail.com/pt/compose)  para informar ao professor.  Ou [este formulário](https://forms.gle/JPhqjPmuKAHxmvwZ9)
 
 
 

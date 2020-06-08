@@ -1,26 +1,11 @@
 
 ### Gazebo Turtlebot
 
-Certifique-se de que seu `.bashrc` têm as variáveis `ROS_IP` e `ROS_MASTER_URI` desabilitadas antes de rodar o Gazebo
+Certifique-se de que seu `.bashrc` têm as variáveis `ROS_IP` e `ROS_MASTER_URI` desabilitadas antes e rodar o Gazebo.
+
+Essas variáveis estarão desabilitadas se tiverem um `#` precedendo a linha. 
 
 
-Você pode iniciar o Gazebo usando **uma** das opções:
-
-    roslaunch turtlebot3_gazebo turtlebot3_stage_4.launch
-
-    roslaunch turtlebot3_gazebo turtlebot3_stage_1.launch
-
-    roslaunch turtlebot3_gazebo turtlebot3_stage_2.launch
-
-    roslaunch turtlebot3_gazebo turtlebot3_stage_3.launch
-
-    roslaunch turtlebot3_gazebo turtlebot3_house.launch
-
-    roslaunch turtlebot3_gazebo turtlebot3_world.launch
-
-O Gazebo já abre um `roscore` implicitamente. 
-
-Note que a questão 1 **exige** que seja o `turtlebot3_house.launch`.
 
 
 ## catkin_make
@@ -34,7 +19,7 @@ Executar `catkin_make` após fazer o download do projeto:
 
 O código deve sempre ser baixado na pasta `cd ~/catkin_make/src` :
 
-    cd ~/catkin_make/src
+    cd ~/catkin_ws/src
     git clone <nome do repo>
 
 ## Arquivos executáveis
