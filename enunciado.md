@@ -50,10 +50,14 @@ Execute o script `downloads.sh`  para baixar os vídeos necessários.
 
 O padrão a seguir foi impresso numa folha. Alguém segurou este padrão em frente ao computador com a folha paralela à tela a uma distância de 1 m e obteve a imagem que está no arquivo `q1\imagem_1metro.png`, que também pode ser vista abaixo
 
+<img src=./q1/padrao.png></img>
+
 ![](./q1/imagem_1metro.png)
 
 
 As distâncias presentes no padrão são as seguintes:
+
+<img src=q1/medidas.png></img>
 
 ![](./q1/distancias_padrao.png)
 
@@ -61,6 +65,7 @@ Lembre-se ainda do modelo *pinhole* de câmera:
 
 ![](./q1/pinhole.png)
 
+<img src=q1/pinhole.png></img>
 
 
 #### O que você deve fazer:
