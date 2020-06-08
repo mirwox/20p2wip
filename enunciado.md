@@ -111,6 +111,10 @@ Você foi contratado por uma empresa de *media tracking* para monitorar quando o
 
 O vídeo `logomarca.mp4` contém o vídeo de um campeonato de Mountain Bike.
 
+<img src="q2/mtb.png"></img>
+
+
+Existe também uma imagem da pomba em preto e branco em `./q2/pomba_gray.png`
 
 #### Orientações
 

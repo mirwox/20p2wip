@@ -5,6 +5,15 @@ Certifique-se de que seu `.bashrc` têm as variáveis `ROS_IP` e `ROS_MASTER_URI
 
 Essas variáveis estarão desabilitadas se tiverem um `#` precedendo a linha. 
 
+## Versão do Python
+
+Os códigos ROS são compatíveis somente com Python 2.
+
+Preficar executar as questões usando o comando `rosrun`. 
+
+## Teleop
+
+Sempre que usar o  `teleop` encerre o programa logo em seguida.  Enquanto estiver aberto o `teleop` ficará enviando comandos de velocidade para o robô, conflitando com seus programas que controlawm o robô. 
 
 
 
