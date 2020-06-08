@@ -194,6 +194,16 @@ Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
 ## Questão 4 (3.3 pontos)
 
+A sua esfera designada serã da seguinte forma
+
+*Escreva seu RA na prova*
+
+Se seu RA for impar, a esfera serã verde
+
+Se seu RA for par, a esfera serã azul
+
+
+
 #### O que é para fazer
 
 Um código que faz o robô chegar e 1.0 m perto da sua esfera designada e parar. Você deve usar para tal uma combinação de *laser* e câmera. 

@@ -42,22 +42,19 @@ def recebe_odometria(data):
 
 if __name__=="__main__":
 
-    rospy.init_node("exemplo_odom")
+    rospy.init_node("q3")
 
-    t0 = rospy.get_rostime()
+    
+
+
 
 
     velocidade_saida = rospy.Publisher("/cmd_vel", Twist, queue_size = 3 )
 
     ref_odometria = rospy.Subscriber("/odom", Odometry, recebe_odometria)
 
+
+    rospy.sleep(1.0) # contorna bugs de timing    
+
     while not rospy.is_shutdown():
-        print("t0", t0)
-        if t0.nsecs == 0:
-            t0 = rospy.get_rostime()
-            print("waiting for timer")
-            continue        
-        t1 = rospy.get_rostime()
-        elapsed = (t1 - t0)
-        print("Passaram ", elapsed.secs, " segundos")
-        rospy.sleep(0.5)
+        rospy.sleep(0.5)    

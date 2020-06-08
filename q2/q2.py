@@ -14,54 +14,12 @@ print("OpenCV versão: ", cv2.__version__)
 print("Diretório de trabalho: ", os.getcwd())
 
 # Arquivos necessários
-video = "../../robot20/media/lines.mp4"
+video = "logomarca.mp4"
 
-def check_exists_size(name, size):
-    """
-        Função para diagnosticar se os arquivos estão com problemas
-    """
-    if os.path.isfile(name):
-        stat = os.stat(name)
-        print("Informações do arquivo ", name, "\n", stat)
-        if stat.st_size !=size:
-            print("Tamanho errado para o arquivo ", name, " Abortando ")
-            mensagem_falta_arquivos()
-            sys.exit(0)
-    else:
-        print("Arquivo ", name, " não encontrado. Abortando!")
-        mensagem_falta_arquivos()
-        sys.exit(0)
-
-def mensagem_falta_arquivos():
-    msg = """ls
-    ls
-
-    Tente apagar os arquivos em robot20/ros/exemplos_python/scripts:
-         MobileNetSSD_deploy.prototxt.txt
-         MobileNetSSD_deploy.caffemodel
-    Depois
-        No diretório robot20/ros/exemplos_python/scripts fazer:
-        git checkout MobileNetSSD_deploy.prototxt.txt
-        Depois ainda: 
-        git lfs pull 
-
-        No diretório No diretório robot20/media
-
-        Fazer:
-        git lfs pull
-
-        Ou então baixe os arquivos manualmente nos links:
-        https://github.com/Insper/robot20/tree/master/ros/exemplos_python/scripts
-        e
-        https://github.com/Insper/robot20/tree/master/media
-    """
-    print(msg)
 
 if __name__ == "__main__":
 
 
-    # Checando se os arquivos necessários existem
-    check_exists_size(video, 942014)
 
     # Inicializa a aquisição da webcam
     cap = cv2.VideoCapture(video)

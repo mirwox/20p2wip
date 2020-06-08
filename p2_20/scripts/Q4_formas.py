@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding:utf-8 -*-
 # Sugerimos rodar com:
-# roslaunch turtlebot3_gazebo  turtlebot3_stage_4.launch
+# roslaunch my_simulation formas.launch
 
 from __future__ import print_function, division
 import rospy
@@ -12,12 +12,18 @@ import cv2
 
 from geometry_msgs.msg import Twist, Vector3
 from sensor_msgs.msg import LaserScan
+from sensor_msgs.msg import Image, CompressedImage
+from cv_bridge import CvBridge, CvBridgeError
+
 import math
 
 
 ranges = None
 minv = 0
 maxv = 10
+
+bridge = CvBridge()
+
 
 def scaneou(dado):
     global ranges
@@ -29,71 +35,26 @@ def scaneou(dado):
     minv = dado.range_min 
     maxv = dado.range_max
  
-
-
-def desenha(cv_image):
-    """
-        Use esta função como exemplo de como desenhar na tela
-    """
-    cv2.circle(cv_image,(256,256),64,(0,255,0),2)
-    cv2.line(cv_image,(256,256),(400,400),(255,0,0),5)
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(cv_image,'Boa sorte!',(0,50), font, 2,(255,255,255),2,cv2.LINE_AA)
-
-def draw_lidar(cv_image, leituras):
-    if leituras is None:
-        return
-    bot = [256,256] # centro do robô
-    escala = 50 # transforma 0.01m em 0.5 px
-
-    raio_bot = int(0.1*escala)
-    # Desenha o robot
-    cv2.circle(cv_image,(bot[0],bot[1]),raio_bot,(255,0,0),1)
-
-    for i in range(len(leituras)):
-        rad = math.radians(i)
-        dist = leituras[i]
-        if minv < dist < maxv:
-            xl = int(bot[0] + dist*math.cos(rad)*50)
-            yl = int(bot[1] + dist*math.sin(rad)*50)
-            cv2.circle(cv_image,(xl,yl),1,(0,255,0),2)
-
-
-def draw_hough(cv_image):
-    img_gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
-    # O trecho abaixo é copiado direto da aula 2, parte sobre Hough, colocando só ma checagem para None na primeira iteraćão
-    lines = cv2.HoughLinesP(img_gray, 10, math.pi/180.0, 100, np.array([]), 45, 5)
-    if lines is None:
-        print("No lines found")
-        return
-    a,b,c = lines.shape
-    for i in range(a):
-        # Faz uma linha ligando o ponto inicial ao ponto final, com a cor vermelha (BGR)
-        cv2.line(cv_image, (lines[i][0][0], lines[i][0][1]), (lines[i][0][2], lines[i][0][3]), (0, 0, 255), 1, cv2.LINE_AA)    
-
-
+# A função a seguir é chamada sempre que chega um novo frame
+def roda_todo_frame(imagem):
+    print("frame")
+    try:
+        cv_image = bridge.compressed_imgmsg_to_cv2(imagem, "bgr8")
+        cv2.imshow("Camera", cv_image)
+        cv2.waitKey(1)
+    except CvBridgeError as e:
+        print('ex', e)
 
 if __name__=="__main__":
 
-    rospy.init_node("le_scan")
+    rospy.init_node("q4")
 
+    topico_imagem = "/camera/rgb/image_raw/compressed"
     velocidade_saida = rospy.Publisher("/cmd_vel", Twist, queue_size = 3 )
     recebe_scan = rospy.Subscriber("/scan", LaserScan, scaneou)
-
-
-    cv2.namedWindow("Saida")
-
+    recebedor = rospy.Subscriber(topico_imagem, CompressedImage, roda_todo_frame, queue_size=4, buff_size = 2**24)
 
     while not rospy.is_shutdown():
-        # Cria uma imagem 512 x 512
-
-        branco_rgb = np.zeros(shape=[512, 512, 3], dtype=np.uint8)
-        # Chama funćões de desenho
-        draw_lidar(branco_rgb, ranges)
-
-        # Imprime a imagem de saida
-        cv2.imshow("Saida", branco_rgb)
-        cv2.waitKey(40) # TRocamos o 0 por 40 para esperar 40 millisegundos
         rospy.sleep(0.1)
 
 
