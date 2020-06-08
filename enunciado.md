@@ -40,7 +40,7 @@ Se você tiver alguma evidência de fraude cometida nesta prova, [use este servi
 
 # Setup 
 
-Execute o script `downloads.sh`  para baixar os vídeos necessários.
+Veja instruções sobre como baixar os vídeos necessários. 
 
 
 # Questões
@@ -67,6 +67,7 @@ Lembre-se ainda do modelo *pinhole* de câmera:
 
 <img src=q1/pinhole.png></img>
 
+Baixe o [vídeo padrao.mp4 neste link](https://alinsperedu.sharepoint.com/:f:/s/RobticaComputacional1.osem2020/EocJXBJnro9MmyeGm_J8EqEBygumF6unizAfZIsAxTebpQ?e=3Bubnr) e salve na pasta `q1`.
 
 #### O que você deve fazer:
 
@@ -81,7 +82,7 @@ Se você realizou alguma medida manual, anote.
 
 Execute o programa `q1/q1.py`. Este exercício **não precisa** de ROS
 
-Você vai notar que este programa roda o vídeo ``q1_padrao.mp4`. 
+Você vai notar que este programa roda o vídeo ``padrao.mp4`. 
 
 
 #### O que você deve fazer:
@@ -109,7 +110,8 @@ Você foi contratado por uma empresa de *media tracking* para monitorar quando o
 
 <img src=./q2/pomba_red.png width=50%></img>
 
-O vídeo `logomarca.mp4` contém o vídeo de um campeonato de Mountain Bike.
+O vídeo `logomarca.mp4` contém o vídeo de um campeonato de Mountain Bike. Deve ser baixado [neste link]((https://alinsperedu.sharepoint.com/:f:/s/RobticaComputacional1.osem2020/EocJXBJnro9MmyeGm_J8EqEBygumF6unizAfZIsAxTebpQ?e=3Bubnr)) e salvo na pasta `q2`.
+
 
 <img src="q2/mtb.png"></img>
 
