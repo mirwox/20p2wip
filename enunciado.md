@@ -221,7 +221,6 @@ Depois:
 
     rosrun p1_20 Q4_formas.py
 
-<img src="./q4/Q4.png" width=50%></img>
 
 
 |Resultado| Conceito| 
